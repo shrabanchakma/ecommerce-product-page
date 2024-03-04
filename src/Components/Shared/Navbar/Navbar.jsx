@@ -4,7 +4,23 @@ import avatar from "../../../assets/images/image-avatar.png";
 import menuIcon from "../../../assets/images/icon-menu.svg";
 import closeIcon from "../../../assets/images/icon-close.svg";
 const Navbar = () => {
-  const navOptions = ["Collections", "Men", "Women", "About", "Contact"];
+  const getNavOptions = () => {
+    const navOptions = ["Collections", "Men", "Women", "About", "Contact"];
+    return (
+      <>
+        {navOptions.map((option, idx) => (
+          <li key={idx}>
+            <a
+              href="#"
+              className="hover:before:content-[''] hover:before:absolute hover:before:h-1 hover:before:bg-[#FE7D1F] hover:before:w-full hover:before:left-0 hover:before:-bottom-[2.82rem] relative before:transition before:duration-300 before:ease-in"
+            >
+              {option}
+            </a>
+          </li>
+        ))}
+      </>
+    );
+  };
   return (
     <nav>
       <div className="navbar h-[7rem] border-b-[1px] ">
@@ -38,33 +54,14 @@ const Navbar = () => {
                 >
                   <img src={closeIcon} alt="" />
                 </label>
-                <ul>
-                  {navOptions.map((option, idx) => (
-                    <li key={idx}>
-                      <a href="#" className="font-bold text-lg">
-                        {option}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <ul>{getNavOptions()}</ul>
               </aside>
             </div>
           </div>
           <a className="text-2xl sm:text-3xl font-bold  btn btn-ghost hover:bg-transparent mb-[.3rem] md:mb-0">
             sneakers
           </a>
-          <ul className="ml-10 hidden md:flex gap-4 ">
-            {navOptions.map((option, idx) => (
-              <li key={idx}>
-                <a
-                  href="#"
-                  className="hover:before:content-[''] hover:before:absolute hover:before:h-1 hover:before:bg-[#FE7D1F] hover:before:w-full hover:before:left-0 hover:before:-bottom-[2.82rem] relative before:transition before:duration-300 before:ease-in"
-                >
-                  {option}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <ul className="ml-10 hidden md:flex gap-4 ">{getNavOptions()}</ul>
         </div>
         <div className="flex-none mr-10">
           <div className="dropdown dropdown-end">
