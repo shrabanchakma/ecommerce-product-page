@@ -1,10 +1,13 @@
+import "./Navbar.css";
+import cart from "../../../assets/images/icon-cart.svg";
+import avatar from "../../../assets/images/image-avatar.png";
 const Navbar = () => {
   const navOptions = ["Collections", "Men", "Women", "About", "Contact"];
   return (
     <nav>
-      <div className="navbar bg-green-500 h-[7rem] border-b-[1px] border-black">
+      <div className="navbar h-[7rem] border-b-[1px] ">
         <div className="flex-1">
-          <a className="text-3xl  btn btn-ghost hover:bg-transparent">
+          <a className="text-3xl font-bold  btn btn-ghost hover:bg-transparent">
             sneakers
           </a>
           <ul className="ml-10 flex gap-4 ">
@@ -12,7 +15,7 @@ const Navbar = () => {
               <li key={idx}>
                 <a
                   href="#"
-                  className="hover:before:content-[''] hover:before:absolute hover:before:h-1 hover:before:bg-red-500 hover:before:w-full hover:before:left-0 hover:before:-bottom-[2.82rem] relative before:transition before:duration-300 before:ease-in"
+                  className="hover:before:content-[''] hover:before:absolute hover:before:h-1 hover:before:bg-[#FE7D1F] hover:before:w-full hover:before:left-0 hover:before:-bottom-[2.82rem] relative before:transition before:duration-300 before:ease-in"
                 >
                   {option}
                 </a>
@@ -20,42 +23,28 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-        <div className="flex-none">
+        <div className="flex-none mr-10">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle"
+              className="btn btn-ghost btn-circle "
             >
               <div className="indicator">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                <span className="badge badge-sm indicator-item">8</span>
+                <img src={cart} alt={avatar} />
+                <span className="badge badge-sm indicator-item text-white bg-[#FF7D1C]">
+                  8
+                </span>
               </div>
             </div>
             <div
               tabIndex={0}
-              className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+              className="mt-3 z-[1] card card-compact dropdown-content min-w-[22rem]  rounded-lg shadow bg-base-100"
             >
-              <div className="card-body">
-                <span className="font-bold text-lg">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
-                <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
+              <div className="card-body" id="p-custom">
+                <h1 className="font-bold text-lg p-5 border-b-[1px]">Cart</h1>
+                <div className="min-h-[10rem] flex items-center justify-center font-bold text-[#787A86]">
+                  Your cart is empty
                 </div>
               </div>
             </div>
@@ -64,13 +53,10 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar"
+              className="btn btn-ghost btn-circle avatar  hover:bg-[#D66718] w-[3.2rem] h-[3.2rem]"
             >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                />
+              <div className="w-12 rounded-full">
+                <img src={avatar} alt={avatar} />
               </div>
             </div>
             <ul
