@@ -1,16 +1,59 @@
 import "./Navbar.css";
 import cart from "../../../assets/images/icon-cart.svg";
 import avatar from "../../../assets/images/image-avatar.png";
+import menuIcon from "../../../assets/images/icon-menu.svg";
+import closeIcon from "../../../assets/images/icon-close.svg";
 const Navbar = () => {
   const navOptions = ["Collections", "Men", "Women", "About", "Contact"];
   return (
     <nav>
       <div className="navbar h-[7rem] border-b-[1px] ">
         <div className="flex-1">
-          <a className="text-3xl font-bold  btn btn-ghost hover:bg-transparent">
+          {/* logo and menu items */}
+          {/* drawer for mobile screen*/}
+          <div className="drawer md:hidden z-10 w-auto  ">
+            <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content">
+              {/* Page content here */}
+              <label
+                htmlFor="my-drawer"
+                className="btn btn-ghost hover:bg-transparent drawer-button pr-0"
+              >
+                <img src={menuIcon} alt={menuIcon} />
+              </label>
+            </div>
+            <div className="drawer-side">
+              <label
+                htmlFor="my-drawer"
+                aria-label="close sidebar"
+                className="drawer-overlay"
+              ></label>
+
+              <aside className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                {/* Sidebar content here */}
+                <label
+                  htmlFor="my-drawer"
+                  aria-label="close sidebar"
+                  className="drawer-overlay py-2 px-4 mb-10"
+                >
+                  <img src={closeIcon} alt="" />
+                </label>
+                <ul>
+                  {navOptions.map((option, idx) => (
+                    <li key={idx}>
+                      <a href="#" className="font-bold text-lg">
+                        {option}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            </div>
+          </div>
+          <a className="text-2xl sm:text-3xl font-bold  btn btn-ghost hover:bg-transparent mb-[.3rem] md:mb-0">
             sneakers
           </a>
-          <ul className="ml-10 flex gap-4 ">
+          <ul className="ml-10 hidden md:flex gap-4 ">
             {navOptions.map((option, idx) => (
               <li key={idx}>
                 <a
@@ -28,7 +71,7 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle "
+              className="btn btn-ghost btn-circle relative"
             >
               <div className="indicator">
                 <img src={cart} alt={avatar} />
@@ -39,9 +82,12 @@ const Navbar = () => {
             </div>
             <div
               tabIndex={0}
-              className="mt-3 z-[1] card card-compact dropdown-content min-w-[22rem]  rounded-lg shadow bg-base-100"
+              className="mt-3 z-[1] card card-compact dropdown-content "
             >
-              <div className="card-body" id="p-custom">
+              <div
+                className="card-body absolute w-[19rem] sm:min-w-[22rem]  rounded-lg shadow-2xl bg-base-100  -right-[5.5rem]  md:right-0"
+                id="p-custom"
+              >
                 <h1 className="font-bold text-lg p-5 border-b-[1px]">Cart</h1>
                 <div className="min-h-[10rem] flex items-center justify-center font-bold text-[#787A86]">
                   Your cart is empty
