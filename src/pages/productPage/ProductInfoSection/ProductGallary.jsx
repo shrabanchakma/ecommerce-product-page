@@ -34,12 +34,12 @@ const ProductGallery = () => {
   };
 
   return (
-    <div>
+    <div className="w-1/2 bg-green-500">
       <Swiper
         modules={[FreeMode, Navigation, Thumbs]}
         spaceBetween={10}
         loop={true}
-        className="bg-blue-500 w-1/2 rounded-2xl"
+        className="bg-blue-500 rounded-2xl"
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
