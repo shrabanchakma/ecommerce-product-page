@@ -3,7 +3,12 @@ import cart from "../../../assets/images/icon-cart.svg";
 import avatar from "../../../assets/images/image-avatar.png";
 import menuIcon from "../../../assets/images/icon-menu.svg";
 import closeIcon from "../../../assets/images/icon-close.svg";
+import { useContext } from "react";
+import { ProductContext } from "../../../pages/productPage/ProductPage/ProductPage";
+
 const Navbar = () => {
+  const { productQuantity } = useContext(ProductContext);
+
   const getNavOptions = () => {
     const navOptions = ["Collections", "Men", "Women", "About", "Contact"];
     return (
@@ -73,7 +78,7 @@ const Navbar = () => {
               <div className="indicator">
                 <img src={cart} alt={avatar} />
                 <span className="badge badge-sm indicator-item text-white bg-[#FF7D1C]">
-                  8
+                  {productQuantity}
                 </span>
               </div>
             </div>
