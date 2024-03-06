@@ -6,7 +6,7 @@ import ProductGallery from "./ProductGallary";
 import ProductInfo from "./ProductInfo";
 const ProductInfoSection = () => {
   return (
-    <section className="flex items-center justify-center p-16">
+    <section className="flex items-center justify-center p-16 ">
       <ProductGallery />
       <ProductInfo />
     </section>
