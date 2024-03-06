@@ -2,8 +2,8 @@ import AddToCartSection from "./AddToCartSection";
 
 const ProductInfo = () => {
   return (
-    <div className="w-1/2 bg-blue-100 p-7 ml-20">
-      <div className="space-y-10 w-4/5">
+    <div className="w-1/2  p-7 ml-20">
+      <div className="space-y-10 ">
         <h3 className="text-[#E78032] font-bold">SNEAKER COMPANY</h3>
         <h1 className="text-5xl font-bold">Fall Limited Edition Sneakers</h1>
         <p className="text-[#B8BABE]">
