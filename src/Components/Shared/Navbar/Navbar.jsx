@@ -5,10 +5,12 @@ import menuIcon from "../../../assets/images/icon-menu.svg";
 import closeIcon from "../../../assets/images/icon-close.svg";
 import { useContext } from "react";
 import { ProductContext } from "../../../pages/productPage/ProductPage/ProductPage";
+import productImg from "../../../assets/images/image-product-1-thumbnail.jpg";
+import iconDelete from "../../../assets/images/icon-delete.svg";
 
 const Navbar = () => {
-  const { productQuantity } = useContext(ProductContext);
-
+  const { productQuantity, setProductQuantity } = useContext(ProductContext);
+  const totalCost = (productQuantity * 125).toFixed(2);
   const getNavOptions = () => {
     const navOptions = ["Collections", "Men", "Women", "About", "Contact"];
     return (
@@ -17,7 +19,7 @@ const Navbar = () => {
           <li key={idx}>
             <a
               href="#"
-              className="hover:before:content-[''] hover:before:absolute hover:before:h-1 hover:before:bg-[#FE7D1F] hover:before:w-full hover:before:left-0 hover:before:-bottom-[2.82rem] relative before:transition before:duration-300 before:ease-in"
+              className="md:hover:before:content-[''] md:hover:before:absolute md:hover:before:h-1 md:hover:before:bg-[#FE7D1F] md:hover:before:w-full md:hover:before:left-0 md:hover:before:-bottom-[2.82rem] relative before:transition before:duration-300 before:ease-in"
             >
               {option}
             </a>
@@ -91,8 +93,40 @@ const Navbar = () => {
                 id="p-custom"
               >
                 <h1 className="font-bold text-lg p-5 border-b-[1px]">Cart</h1>
-                <div className="min-h-[10rem] flex items-center justify-center font-bold text-[#787A86]">
-                  Your cart is empty
+                <div className="min-h-[10rem] w-full  flex items-center justify-center font-bold text-[#787A86]">
+                  {productQuantity > 0 ? (
+                    <div className="w-full flex flex-col items-center space-y-5">
+                      <div className="flex items-center ">
+                        <img
+                          src={productImg}
+                          alt={productImg}
+                          className="w-[3.5rem] rounded-md mr-5"
+                        />
+                        <div className="text-darkGrayishBlue font-light flex items-center gap-4">
+                          <div>
+                            <h1 className="">Fall Limited Edition Sneakers</h1>
+                            <p className=" ">
+                              $125.00 x {productQuantity}{" "}
+                              <span className="text-black font-bold">
+                                ${totalCost}
+                              </span>
+                            </p>
+                          </div>
+                          <img
+                            onClick={() => setProductQuantity(0)}
+                            src={iconDelete}
+                            alt={iconDelete}
+                            className="hover:cursor-pointer hover:scale-105 transition-all"
+                          />
+                        </div>
+                      </div>
+                      <button className="btn btn-primary w-[85%] py-[1.25rem] h-auto bg-[#FF7D1B] hover:bg-[#FF7D1B] border-none text-white hover:scale-[1.04]">
+                        Checkout
+                      </button>
+                    </div>
+                  ) : (
+                    "Your cart is empty"
+                  )}
                 </div>
               </div>
             </div>

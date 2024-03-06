@@ -27,7 +27,23 @@ const ProductGallary = () => {
       </>
     );
   };
-
+  const getImages = () => {
+    return (
+      <>
+        {products.map((product, idx) => (
+          <div key={idx} className="bg-white rounded-lg">
+            <img
+              onClick={() => setModal((prev) => !prev)}
+              key={idx}
+              src={product.largeImg}
+              alt={product.largeImg}
+              className="rounded-3xl "
+            />
+          </div>
+        ))}
+      </>
+    );
+  };
   const goNext = () => {
     console.log("go next working");
     setValue(value === products.length - 1 ? 0 : value + 1);
@@ -37,13 +53,33 @@ const ProductGallary = () => {
     setValue(value === 0 ? products.length - 1 : value - 1);
   };
   return (
-    <div className="w-1/2">
-      <div className=" bg-blue-500 hover:cursor-pointer hover:opacity-90 transition ease-in delay-75  ">
+    <div className="w-full md:w-1/2 bg-green">
+      <div className="hidden md:block  hover:cursor-pointer hover:opacity-90 transition ease-in delay-75  ">
         <img
           onClick={() => setModal((prev) => !prev)}
           src={currentImg}
           alt={products[0].largeImg}
           className="rounded-3xl "
+        />
+      </div>
+      <div className="block md:hidden hover:cursor-pointer transition ease-in delay-75 relative">
+        <img
+          onClick={goPrev}
+          src={prevIcon}
+          alt={prevIcon}
+          className="h-[3rem] w-[3rem] p-5 rounded-full bg-white absolute left-0 top-[50%] -translate-y-[50%] z-10 transition-all hover:scale-110"
+        />
+        <img
+          onClick={() => setModal((prev) => !prev)}
+          src={currentImg}
+          alt={products[0].largeImg}
+        />
+
+        <img
+          onClick={goNext}
+          src={nextIcon}
+          alt={nextIcon}
+          className="h-[3rem] w-[3rem] p-5 rounded-full bg-white absolute right-0 top-[50%] -translate-y-[50%] z-10 transition-all hover:scale-110"
         />
       </div>
       {/* modal */}
@@ -86,7 +122,7 @@ const ProductGallary = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-around mt-7 w-[36rem] ">
+      <div className="hidden md:flex justify-around mt-7 w-[36rem] ">
         {getThumbnails()}
       </div>
     </div>

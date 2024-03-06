@@ -12,6 +12,8 @@ export default {
       white: "hsl(0, 0%, 100%)",
       black: "hsl(0, 0%, 0%)",
       lightBlack: "hsl(0, 0%, 0%, .75)",
+      green: "green",
+      pink: "pink",
     },
     extend: {
       screens: {
