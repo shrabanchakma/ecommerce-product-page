@@ -5,7 +5,6 @@ const GoPrevBtn = ({ isModal }) => {
   return (
     <button onClick={() => swiper.slidePrev()}>
       <img
-        onClick={() => console.log(swiper)}
         src={nextBtnIcon}
         alt={nextBtnIcon}
         className={`${

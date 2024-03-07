@@ -16,23 +16,24 @@ const AddToCartSection = () => {
   };
 
   const updateProductQuantity = () => {
-    if (productQuantity) setProductQuantity(quantity);
+    if (productQuantity) setProductQuantity((curr) => curr + quantity);
+    else setProductQuantity(quantity);
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row items-center gap-5 ">
+    <div className="w-full flex flex-col md:flex-row items-center gap-[5px] lg:gap-5 ">
       {/* quantitySelector */}
-      <div className="w-full md:w-2/3 bg-[#F7F8FD] flex items-center justify-between rounded-lg py-[.25rem]">
+      <div className="w-full lg:w-2/3 bg-[#F7F8FD] flex items-center justify-between rounded-lg  lg:py-[.25rem]">
         <button
           onClick={() => updateQuantity("-")}
-          className="btn btn-ghost hover:bg-transparent text-3xl font-bold text-[#FF7D1B]  h-auto"
+          className="btn btn-ghost hover:bg-transparent text-xl lg:text-3xl font-bold text-[#FF7D1B]  h-auto"
         >
           -
         </button>
         <span className="text-xl font-bold mt-1">{quantity}</span>
         <button
           onClick={() => updateQuantity("+")}
-          className="btn btn-ghost hover:bg-transparent text-3xl font-bold text-[#FF7D1B] h-auto"
+          className="btn btn-ghost hover:bg-transparent text-xl  lg:text-3xl font-bold text-[#FF7D1B] h-auto"
         >
           +
         </button>
@@ -41,9 +42,9 @@ const AddToCartSection = () => {
 
       <button
         onClick={updateProductQuantity}
-        className="btn btn-primary w-full md:w-3/5  py-[1.25rem] h-auto bg-[#FF7D1B] hover:bg-[#FF7D1B] border-none text-white hover:scale-[1.04]"
+        className="btn btn-primary  w-full md:w-3/5  lg:py-[1.25rem] h-auto bg-[#FF7D1B] hover:bg-[#FF7D1B] border-none text-white hover:scale-[1.04] text-[10px] lg:text-base"
       >
-        <AiOutlineShoppingCart className="text-xl" />
+        <AiOutlineShoppingCart className="text-lg lg:text-xl" />
         Add to cart
       </button>
     </div>

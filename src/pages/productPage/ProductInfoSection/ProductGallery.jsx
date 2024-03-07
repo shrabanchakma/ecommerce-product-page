@@ -19,7 +19,7 @@ const ProductGallary = () => {
               key={idx}
               src={product.smallImg}
               alt={product.smallImg}
-              className="rounded-lg w-[6.8rem] mx-auto hover:border-[3px] border-orange transition-all hover:scale-105 hover:opacity-50 hover:cursor-pointer "
+              className="rounded-lg  w-[5rem] lg:w-[6.8rem] mx-auto hover:border-[3px] border-orange transition-all hover:scale-105 hover:opacity-50 hover:cursor-pointer "
             />
           </SwiperSlide>
         ))}
@@ -30,7 +30,7 @@ const ProductGallary = () => {
     return (
       <>
         {products.map((product, idx) => (
-          <SwiperSlide key={idx} className="bg-white rounded-lg">
+          <SwiperSlide key={idx} className=" rounded-lg">
             <img
               key={idx}
               src={product.largeImg}
@@ -43,7 +43,7 @@ const ProductGallary = () => {
     );
   };
   return (
-    <div className="w-full md:w-1/2 ">
+    <div className="w-full md:w-3/5 lg:w-1/2">
       <div className="hidden md:block">
         <Swiper
           modules={[Thumbs]}
@@ -98,7 +98,7 @@ const ProductGallary = () => {
           slidesPerView={4}
           watchSlidesProgress
           onSwiper={setThumbsSwiper}
-          className="hidden md:flex justify-around mt-7 w-[36rem] "
+          className="grid-flow-col  justify-around lg:mt-7 xl:w-[36rem]"
         >
           {getThumbnails()}
         </Swiper>

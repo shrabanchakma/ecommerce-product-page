@@ -6,7 +6,7 @@ import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 const ProductInfoSection = () => {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center md:p-16  bg-green relative ">
+    <section className="flex flex-col md:flex-row items-center justify-center md:p-16  relative ">
       <ProductGallery />
       <ProductInfo />
     </section>

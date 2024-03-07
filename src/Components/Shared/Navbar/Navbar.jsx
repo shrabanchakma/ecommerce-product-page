@@ -70,16 +70,16 @@ const Navbar = () => {
           </a>
           <ul className="ml-10 hidden md:flex gap-4 ">{getNavOptions()}</ul>
         </div>
-        <div className="flex-none mr-10">
-          <div className="dropdown dropdown-end">
+        <div className="flex-none md:mr-10 z-20">
+          <div className="dropdown dropdown-end ">
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle relative"
             >
               <div className="indicator">
-                <img src={cart} alt={avatar} />
-                <span className="badge badge-sm indicator-item text-white bg-[#FF7D1C]">
+                <img src={cart} alt={cart} />
+                <span className="badge badge-sm ] indicator-item text-white bg-[#FF7D1C]">
                   {productQuantity}
                 </span>
               </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
               className="mt-3 z-[1] card card-compact dropdown-content "
             >
               <div
-                className="card-body absolute w-[19rem] sm:min-w-[22rem]  rounded-lg shadow-2xl bg-base-100  -right-[5.5rem]  md:right-0"
+                className="card-body absolute  w-[19rem] sm:min-w-[22rem]  rounded-lg shadow-2xl bg-base-100  -right-[2rem]  md:right-0"
                 id="p-custom"
               >
                 <h1 className="font-bold text-lg p-5 border-b-[1px]">Cart</h1>
@@ -135,9 +135,9 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar  hover:bg-[#D66718] w-[3.2rem] h-[3.2rem]"
+              className="btn btn-ghost btn-circle btn-sm md:btn-md hover:bg-[#D66718]  "
             >
-              <div className="w-12 rounded-full">
+              <div className="w-7 md:w-12 rounded-full">
                 <img src={avatar} alt={avatar} />
               </div>
             </div>

@@ -5,7 +5,7 @@ import nextBtn from "../../../assets/images/icon-next.svg";
 import prevBtn from "../../../assets/images/icon-previous.svg";
 import closeBtn from "../../../assets/images/icon-close.svg";
 const ProductModal = ({ getImages, getThumbnails, setModal }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [modalThumbsSwiper, setModalThumbsSwiper] = useState(null);
   const swiperRef = useRef();
   return (
     <div className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]  hover:cursor-pointer transition ease-in delay-75 ">
@@ -29,7 +29,9 @@ const ProductModal = ({ getImages, getThumbnails, setModal }) => {
           modules={[Thumbs]}
           thumbs={{
             swiper:
-              thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+              modalThumbsSwiper && !modalThumbsSwiper.destroyed
+                ? modalThumbsSwiper
+                : null,
           }}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           spaceBetween={2}
@@ -44,7 +46,7 @@ const ProductModal = ({ getImages, getThumbnails, setModal }) => {
         modules={[Thumbs]}
         slidesPerView={4}
         watchSlidesProgress
-        onSwiper={setThumbsSwiper}
+        onSwiper={setModalThumbsSwiper}
         className="hidden md:flex justify-around mt-7 w-[36rem] "
       >
         {getThumbnails()}
