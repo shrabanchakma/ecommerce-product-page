@@ -30,7 +30,7 @@ const Navbar = () => {
   };
   return (
     <nav>
-      <div className="navbar h-[7rem] border-b-[1px] ">
+      <div className="navbar h-[5rem]  md:h-[7rem] lg:border-b-[1px]">
         <div className="flex-1">
           {/* logo and menu items */}
           {/* drawer for mobile screen*/}
